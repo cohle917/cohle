@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main(void)
+{
+	int n,m,i,j;
+	int cnt=0;
+	int sum=0;
+	scanf("%d %d",&n,&m);
+	for (i=2;cnt<=200;i++){
+		int inform=1;
+		for(j=2;j<i;j++){
+			if (i%j==0){
+				inform=0;
+				break;
+			}
+		}
+		if (inform==1){
+			cnt++;
+//			printf("%d ",i);
+		if (n<=cnt){
+			if (cnt<=m){
+				sum+=i;
+			}
+		}
+		}
+	}
+	printf("%d",sum);
+	return 0;
+}
