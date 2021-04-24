@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main(void)
+{
+	int i,a,b,y;
+	int xs[200];
+	scanf("%d/%d",&a,&b);
+	int cnt=0;
+	do{
+		y=a*10/b;
+		a=(a*10)%b;
+		xs[cnt]=y;
+		cnt++;
+	}while(cnt<200 && a !=0);
+	printf("0.");
+	for(i=0;i<cnt;i++){
+		printf("%d",xs[i]);
+	}
+	return 0;
+}
