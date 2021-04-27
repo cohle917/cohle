@@ -1,0 +1,63 @@
+#include <stdio.h>
+int max(int a[],int length);//输出该行最大值所在的列下标 
+int min(int a[],int length);//输出该列最大值所在的行下标
+int main(void)
+{
+	int n,i,j,k,hmax,lmin;
+	int p=0;
+	int seed[2];
+	scanf("%d",&n);
+	int jz[102][102];
+	int a[102];
+	for (i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			scanf("%d",&jz[i][j]);
+		}
+	}
+	for (i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			a[j]=jz[i][j];
+		}
+		hmax=max(a,n);
+		for(j=0;j<n;j++){
+			a[j]=jz[j][hmax];
+		}
+		lmin=min(a,n);
+		if(i==lmin){
+			seed[0]=i;
+			seed[1]=hmax;
+			p=1;
+			break;
+		}
+	}
+	if(p==1){
+		printf("%d %d",seed[0],seed[1]);
+	}else{
+		printf("NO");
+	}
+	return 0;
+}
+int max(int a[],int length)
+{
+	int ret=0;
+	int max=a[0];
+	for(int i=1;i<length;i++){
+		if(a[i]>max){
+			max=a[i];
+			ret=i;
+		}
+	}
+	return ret;
+}
+int min(int a[],int length)
+{
+	int ret=0;
+	int min=a[0];
+	for(int i=1;i<length;i++){
+		if(a[i]<min){
+			min=a[i];
+			ret=i;
+		}
+	}
+	return ret;
+}
