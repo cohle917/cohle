@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+	char zfc[100];
+	int n=0;
+	int i;
+	int exit=0;
+	while (exit==0){
+		scanf("%s",&zfc);
+		n=strlen(zfc);
+		for (i=n;i>0;i--){
+			if(strstr(zfc,".")){
+				exit=1;
+			}
+		}
+		if(exit==1){
+			n--;
+			printf("%d",n);
+		}else{
+			printf("%d ",n);
+		}
+	}
+    return 0;
+
+}
